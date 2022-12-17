@@ -6,7 +6,7 @@ import User from "./components/User";
 
 function App() {
   const [userIDValue, setUserIDValue] = useState(0);
-  const value = (person) => {
+  const valueID = (person) => {
     setUserIDValue(person)
   }
 
@@ -16,9 +16,10 @@ function App() {
           <div className="auth-wrapper">
             <div className="auth-inner">
               <Routes>
-                <Route exact path="/" element={<LoginPage value = {value} />} />
-                <Route path="/sign-in" element={<LoginPage value = {value} data-testid = 'login'/>} />
+                <Route exact path="/" element={<LoginPage value = {valueID} />} />
+                <Route path="/sign-in" element={<LoginPage value = {valueID} data-testid = 'login'/>} />
                 <Route path="/sign-up" element={<User />} />
+                <Route path ="/movie-page" element={<LoginPage/>}/>
               </Routes>
             </div>
           </div>

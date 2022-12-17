@@ -8,17 +8,27 @@ import {FormLabel} from "react-bootstrap";
 
 
 export default function CreateAccount({onAdd}) {
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [userName, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [state, setState] = useState('');
+    const [city, setCity] = useState('');
+    const [zipcode, setZipcode] = useState(0);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
 
     const onSubmit = (event) => {
         event.preventDefault()
-        onAdd({email, username, password})
+        onAdd({firstName, lastName, state, city, zipcode, userName, password, email})
         setEmail("")
         setUsername("")
         setPassword("")
-    }
+        setState("")
+        setCity("")
+        setZipcode(0)
+        setFirstName("")
+        setLastName("")
+    };
 
     return (
         <div>
@@ -28,13 +38,73 @@ export default function CreateAccount({onAdd}) {
                 <Row className = "align-items-center">
                     <Col xs = "auto">
                         <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
+                            First Name
+                        </Form.Label>
+                        <InputGroup className = "mb-2">
+                            <Form.Control type = "username"
+                                          id = "inlineFormInputGroup"
+                                          placeholder= "Username"
+                                          value = {firstName}
+                                          onChange={(event) => setFirstName(event.target.value)} />
+                        </InputGroup>
+                    </Col>
+                    <Col xs = "auto">
+                        <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
+                            Last Name
+                        </Form.Label>
+                        <InputGroup className = "mb-2">
+                            <Form.Control type = "username"
+                                          id = "inlineFormInputGroup"
+                                          placeholder= "Username"
+                                          value = {lastName}
+                                          onChange={(event) => setLastName(event.target.value)} />
+                        </InputGroup>
+                    </Col>
+                    <Col xs = "auto">
+                        <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
+                            State
+                        </Form.Label>
+                        <InputGroup className = "mb-2">
+                            <Form.Control type = "username"
+                                          id = "inlineFormInputGroup"
+                                          placeholder= "Username"
+                                          value = {state}
+                                          onChange={(event) => setState(event.target.value)} />
+                        </InputGroup>
+                    </Col>
+                    <Col xs = "auto">
+                        <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
+                            City
+                        </Form.Label>
+                        <InputGroup className = "mb-2">
+                            <Form.Control type = "username"
+                                          id = "inlineFormInputGroup"
+                                          placeholder= "Username"
+                                          value = {city}
+                                          onChange={(event) => setCity(event.target.value)} />
+                        </InputGroup>
+                    </Col>
+                    <Col xs = "auto">
+                        <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
+                            Zipcode
+                        </Form.Label>
+                        <InputGroup className = "mb-2">
+                            <Form.Control type = "username"
+                                          id = "inlineFormInputGroup"
+                                          placeholder= "Username"
+                                          value = {zipcode}
+                                          onChange={(event) => setZipcode(event.target.value)} />
+                        </InputGroup>
+                    </Col>
+                    <Col xs = "auto">
+                        <Form.Label htmlFor= "inlineFormInput" visuallyHidden>
                             Username
                         </Form.Label>
                         <InputGroup className = "mb-2">
                             <Form.Control type = "username"
                                           id = "inlineFormInputGroup"
                                           placeholder= "Username"
-                                          value = {username}
+                                          value = {userName}
                                           onChange={(event) => setUsername(event.target.value)} />
                         </InputGroup>
                     </Col>

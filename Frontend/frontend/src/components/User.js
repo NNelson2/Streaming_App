@@ -10,21 +10,23 @@ function User() {
     const [users, addUsers] = useState([])
     const navigate = useNavigate();
 
-    const createUser = async(user) => {
-        const id = 'code-' + Math.floor(Math.random() * 100000)
-        const clicks = 0
-        const newUser = {id,...user,clicks}
-        const res = await fetch('http://localhost:8080/users', {
+    const createUser = async(User) => {
+        // const id = 'code-' + Math.floor(Math.random() * 100000)
+
+        const newUser = {User}
+        console.log(newUser)
+        const res = await fetch('http://localhost:8080/users/', {
             method: 'POST',
             headers: {
+                'Accept': 'application/json',
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(newUser)
         })
-        console.log(newUser)
+        console.log(JSON.stringify(newUser))
         const data = await res.json
         addUsers([data,...users])
-        navigate('/sign-in')
+        // navigate('/sign-in')
     }
 
     return (

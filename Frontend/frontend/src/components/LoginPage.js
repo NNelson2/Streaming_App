@@ -20,9 +20,25 @@ export default function LoginPage({value}) {
     };
 
     const validateLogin = async() => {
-        const res = await fetch('/users/username/{username}')
-        const data = await res.json()
-        navigate('/movie-page');
+        console.log(username);
+        const res = await fetch('http://localhost:8080/users/username/'+ username, {
+            method: 'GET'
+        });
+        const data = await res.json();
+        console.log(data);
+        // for (var i = 0; i < data.length; i++) {
+        //     if (data[i].userName == username && data[i].password == password) {
+        //         console.log("it worked")
+        //         value(data[i].id)
+        //         navigate('/movie-page')
+        //         return
+        //     }
+        // }
+        if(data.userName == username && data.password == password) {
+            navigate('/movie-page');
+            return;
+        }
+        alert("no account found");
     };
 
     return (
