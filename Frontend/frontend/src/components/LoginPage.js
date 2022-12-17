@@ -44,7 +44,7 @@ export default function LoginPage({value}) {
     return (
         <div className = "LoginPage">
             <header className = "LoginPage-Header">
-                <p>Clicker Game Login</p>
+                <p>Streaming App</p>
             </header>
             <br></br>
             <Form>
