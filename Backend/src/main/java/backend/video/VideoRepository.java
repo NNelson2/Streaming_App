@@ -11,6 +11,6 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
     Video findByName(String name);
     boolean existsByName(String name);
 
-    @Query(nativeQuery = true, value="SELECT name FROM backend.video")
+    @Query(nativeQuery = true, value="SELECT name FROM videos.video")
     List<String> getAllEntryNames();
 }

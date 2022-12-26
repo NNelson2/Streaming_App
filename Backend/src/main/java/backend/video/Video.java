@@ -16,12 +16,17 @@ public class Video{
     @Column(unique = true)
     private String name;
 
-    @Lob
-    private byte[] data;
+   @Column(length = 65555)
+   private String thumbnail;
 
-    public Video(String name, byte[] data) {
+    public Video(String name, String thumbnail) {
         this.name = name;
-        this.data = data;
+        this.thumbnail = thumbnail;
+    }
+
+    public Video(String name) {
+        this.name = name;
+        thumbnail = null;
     }
 
     public Long getId() {
@@ -40,11 +45,11 @@ public class Video{
         this.name = name;
     }
 
-    public byte[] getData() {
-        return data;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setData(byte[] data) {
-        this.data = data;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }
